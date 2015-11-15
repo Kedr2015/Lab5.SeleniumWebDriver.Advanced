@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="6" passed="6">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="106435" started-at="2015-11-15T21:43:31Z" finished-at="2015-11-15T21:45:17Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="106435" started-at="2015-11-15T21:43:31Z" finished-at="2015-11-15T21:45:17Z">
+      <class name="com.epam.Test.CreateAndSaveMessageTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="startBrowser" is-config="true" duration-ms="14974" started-at="2015-11-16T00:43:31Z" finished-at="2015-11-16T00:43:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="saveMailTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="saveMailTest" duration-ms="13662" started-at="2015-11-16T00:43:46Z" data-provider="newMailData" finished-at="2015-11-16T00:44:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[varchenko.nikita.v@mail.ru]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveMailTest -->
+        <test-method status="PASS" signature="saveMailTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="saveMailTest" duration-ms="4189" started-at="2015-11-16T00:44:00Z" data-provider="newMailData" finished-at="2015-11-16T00:44:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[varchenko.nikita.v@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test2Test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test3Test]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveMailTest -->
+        <test-method status="PASS" signature="checkDrafts(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="checkDrafts" duration-ms="2003" started-at="2015-11-16T00:45:03Z" data-provider="newMailData" depends-on-methods="com.epam.Test.CreateAndSaveMessageTest.saveMailTest" finished-at="2015-11-16T00:45:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[varchenko.nikita.v@mail.ru]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test2]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test3]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDrafts -->
+        <test-method status="PASS" signature="checkDrafts(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="checkDrafts" duration-ms="3168" started-at="2015-11-16T00:45:05Z" data-provider="newMailData" depends-on-methods="com.epam.Test.CreateAndSaveMessageTest.saveMailTest" finished-at="2015-11-16T00:45:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[varchenko.nikita.v@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Test2Test]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Test3Test]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkDrafts -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.epam.Test.CreateAndSaveMessageTest@414e3789]" name="closeBrowser" is-config="true" duration-ms="8877" started-at="2015-11-16T00:45:08Z" finished-at="2015-11-16T00:45:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.epam.Test.CreateAndSaveMessageTest -->
+      <class name="com.epam.Test.LogoutTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.epam.Test.LogoutTest@762024dd]" name="startBrowser" is-config="true" duration-ms="12599" started-at="2015-11-16T00:44:36Z" finished-at="2015-11-16T00:44:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.epam.Test.LogoutTest@762024dd]" name="logout" duration-ms="14560" started-at="2015-11-16T00:44:49Z" finished-at="2015-11-16T00:45:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.epam.Test.LogoutTest@762024dd]" name="closeBrowser" is-config="true" duration-ms="17" started-at="2015-11-16T00:45:03Z" finished-at="2015-11-16T00:45:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.epam.Test.LogoutTest -->
+      <class name="com.epam.Test.LoginTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.epam.Test.LoginTest@385465c1]" name="startBrowser" is-config="true" duration-ms="8171" started-at="2015-11-16T00:44:04Z" finished-at="2015-11-16T00:44:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="authTest()[pri:0, instance:com.epam.Test.LoginTest@385465c1]" name="authTest" duration-ms="12669" started-at="2015-11-16T00:44:12Z" finished-at="2015-11-16T00:44:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- authTest -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.epam.Test.LoginTest@385465c1]" name="closeBrowser" is-config="true" duration-ms="11450" started-at="2015-11-16T00:44:25Z" finished-at="2015-11-16T00:44:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- com.epam.Test.LoginTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
