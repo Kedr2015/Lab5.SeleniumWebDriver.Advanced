@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.epam</groupId>
-	<artifactId>Lab4.SeleniumWebDriver.Basics</artifactId>
+	<artifactId>Lab5.SeleniumWebDriver.Advanced</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
