@@ -1,5 +1,6 @@
 package com.epam.pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage {
 	private WebDriver driver;// webdriver
 	private Actions builder;
+	private JavascriptExecutor executor;
 
 	// Locator field name
 	@FindBy(xpath = "//input[@name='login'][@title='Логин']")
@@ -37,6 +39,7 @@ public class LoginPage {
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		builder = new Actions(this.driver);
+		executor = (JavascriptExecutor)driver;
 	}
 
 	/**
@@ -77,7 +80,7 @@ public class LoginPage {
 	 * Clicking on the Login
 	 */
 	public void pressButtonInput() {
-		builder.moveToElement(loginButton).click().perform();
+		executor.executeScript("arguments[0].click();", loginButton);
 	}
 
 	/**

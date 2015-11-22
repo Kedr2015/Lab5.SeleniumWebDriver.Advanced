@@ -1,105 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="84817" started-at="2015-11-22T22:44:34Z" finished-at="2015-11-22T22:45:58Z">
+  <suite name="Default suite" duration-ms="49894" started-at="2015-11-22T22:54:00Z" finished-at="2015-11-22T22:54:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="84817" started-at="2015-11-22T22:44:34Z" finished-at="2015-11-22T22:45:58Z">
-      <class name="com.epam.test.CreateAndSendMessageTest">
-        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="startBrowser" is-config="true" duration-ms="36551" started-at="2015-11-23T01:44:34Z" finished-at="2015-11-23T01:45:10Z">
+    <test name="Default test" duration-ms="49894" started-at="2015-11-22T22:54:00Z" finished-at="2015-11-22T22:54:50Z">
+      <class name="com.epam.test.LogoutTest">
+        <test-method status="PASS" signature="startBrowser()[pri:0, instance:com.epam.test.LogoutTest@1cb3a963]" name="startBrowser" is-config="true" duration-ms="36263" started-at="2015-11-23T01:54:00Z" finished-at="2015-11-23T01:54:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startBrowser -->
-        <test-method status="PASS" signature="sendMailTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="sendMailTest" duration-ms="21265" started-at="2015-11-23T01:45:10Z" data-provider="newMailData" finished-at="2015-11-23T01:45:31Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[epamtestselenium@qip.ru]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test2]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Test3]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="logout()[pri:0, instance:com.epam.test.LogoutTest@1cb3a963]" name="logout" duration-ms="13560" started-at="2015-11-23T01:54:36Z" finished-at="2015-11-23T01:54:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sendMailTest -->
-        <test-method status="PASS" signature="sendMailTest(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="sendMailTest" duration-ms="15700" started-at="2015-11-23T01:45:31Z" data-provider="newMailData" finished-at="2015-11-23T01:45:47Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[varchenko.nikita.v@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test2Test]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Test3Test]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- sendMailTest -->
-        <test-method status="PASS" signature="checkSent(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="checkSent" duration-ms="2915" started-at="2015-11-23T01:45:47Z" data-provider="newMailData" depends-on-methods="com.epam.test.CreateAndSendMessageTest.sendMailTest" finished-at="2015-11-23T01:45:50Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[epamtestselenium@qip.ru]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test2]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Test3]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkSent -->
-        <test-method status="PASS" signature="checkSent(java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="checkSent" duration-ms="3088" started-at="2015-11-23T01:45:50Z" data-provider="newMailData" depends-on-methods="com.epam.test.CreateAndSendMessageTest.sendMailTest" finished-at="2015-11-23T01:45:53Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[varchenko.nikita.v@gmail.com]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Test2Test]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Test3Test]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- checkSent -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.epam.test.CreateAndSendMessageTest@74a7ef62]" name="closeBrowser" is-config="true" duration-ms="5213" started-at="2015-11-23T01:45:53Z" finished-at="2015-11-23T01:45:58Z">
+        </test-method> <!-- logout -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:com.epam.test.LogoutTest@1cb3a963]" name="closeBrowser" is-config="true" duration-ms="17" started-at="2015-11-23T01:54:50Z" finished-at="2015-11-23T01:54:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-      </class> <!-- com.epam.test.CreateAndSendMessageTest -->
+      </class> <!-- com.epam.test.LogoutTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
