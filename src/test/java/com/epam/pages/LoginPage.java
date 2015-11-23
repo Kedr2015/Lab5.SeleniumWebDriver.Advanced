@@ -63,7 +63,8 @@ public class LoginPage {
 	 *            - user password
 	 */
 	public void inputName(String name) {
-		builder.moveToElement(userNameLocator).click().sendKeys(name).perform();
+		//builder.moveToElement(userNameLocator).click().sendKeys(name).perform();
+		executor.executeScript("arguments[0].value='"+name+"';", userNameLocator);
 	}
 
 	/**
