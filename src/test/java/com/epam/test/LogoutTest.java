@@ -2,15 +2,14 @@ package com.epam.test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.epam.date.TestData;
+import com.epam.date.StartTest;
+import com.epam.date.TestDataProvider;
 import com.epam.pages.LoginPage;
 import com.epam.pages.MainMailPage;
 
@@ -20,7 +19,6 @@ import com.epam.pages.MainMailPage;
  *         The test checks the Logout system
  */
 public class LogoutTest {
-	private WebDriver driver;
 	MainMailPage mailMailPlace;
 	LoginPage loginPlace;
 
@@ -29,22 +27,22 @@ public class LogoutTest {
 	 */
 	@BeforeTest
 	public void startBrowser() {
-		// Initialization driver
-		driver = new FirefoxDriver();
+		// Initialization driver and date
+		StartTest.start();
 		// Create an instance of the Main Mail page
-		mailMailPlace = PageFactory.initElements(driver, MainMailPage.class);
+		mailMailPlace = PageFactory.initElements(StartTest.driver, MainMailPage.class);
 		// Create an instance of the login page
-		loginPlace = PageFactory.initElements(driver, LoginPage.class);
+		loginPlace = PageFactory.initElements(StartTest.driver, LoginPage.class);
 		// Time waiting objects on the page
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		StartTest.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		// Open the window
-		driver.manage().window().maximize();
+		StartTest.driver.manage().window().maximize();
 		// Going to pages
-		driver.get(TestData.url);
+		StartTest.driver.get(TestDataProvider.url);
 		// Enter login
-		loginPlace.inputName(TestData.login);
+		loginPlace.inputName(TestDataProvider.login);
 		// Enter password
-		loginPlace.inputPassword(TestData.password);
+		loginPlace.inputPassword(TestDataProvider.password);
 		// Log in
 		loginPlace.pressButtonInput();
 		// Go to home page mail
@@ -57,7 +55,7 @@ public class LogoutTest {
 	@AfterTest
 	public void closeBrowser() {
 		// Close Browser
-		driver.close();
+		StartTest.driver.close();
 	}
 
 	/**

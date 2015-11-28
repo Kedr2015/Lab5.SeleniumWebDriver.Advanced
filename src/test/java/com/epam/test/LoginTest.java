@@ -2,15 +2,14 @@ package com.epam.test;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.epam.date.TestData;
+import com.epam.date.StartTest;
+import com.epam.date.TestDataProvider;
 import com.epam.pages.LoginPage;
 import com.epam.pages.MainMailPage;
 
@@ -21,7 +20,6 @@ import com.epam.pages.MainMailPage;
  */
 public class LoginTest {
 
-	private WebDriver driver;
 	MainMailPage mailMailPlace;
 	LoginPage loginPlace;
 
@@ -30,18 +28,18 @@ public class LoginTest {
 	 */
 	@BeforeTest
 	public void startBrowser() {
-		// Initialization driver
-		driver = new FirefoxDriver();
+		// Initialization driver and date
+		StartTest.start();
 		// Create an instance of the Main Mail page
-		mailMailPlace = PageFactory.initElements(driver, MainMailPage.class);
+		mailMailPlace = PageFactory.initElements(StartTest.driver, MainMailPage.class);
 		// Create an instance of the login page
-		loginPlace = PageFactory.initElements(driver, LoginPage.class);
+		loginPlace = PageFactory.initElements(StartTest.driver, LoginPage.class);
 		// Time waiting objects on the page
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		StartTest.driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		// Open the window
-		driver.manage().window().maximize();
+		StartTest.driver.manage().window().maximize();
 		// Going to pages
-		driver.get(TestData.url);
+		StartTest.driver.get(TestDataProvider.url);
 	}
 
 	/**
@@ -52,7 +50,7 @@ public class LoginTest {
 		// Sign Out
 		mailMailPlace.signOut();
 		// Close Browser
-		driver.close();
+		StartTest.driver.close();
 
 	}
 
@@ -61,10 +59,10 @@ public class LoginTest {
 	 */
 	@Test
 	public void authTest() {
-		System.out.println(
-				"Test 1 Authorize in system\nUser = " + TestData.login + " and password = " + TestData.password);
-		loginPlace.inputName(TestData.login);
-		loginPlace.inputPassword(TestData.password);
+		System.out.println("Test 1 Authorize in system\nUser = " + TestDataProvider.login + " and password = "
+				+ TestDataProvider.password);
+		loginPlace.inputName(TestDataProvider.login);
+		loginPlace.inputPassword(TestDataProvider.password);
 		loginPlace.pressButtonInput();
 		loginPlace.pressButtonOpenMail();
 		Assert.assertTrue(mailMailPlace.isNewMailDisplayed(), "Logon failure occurred");
