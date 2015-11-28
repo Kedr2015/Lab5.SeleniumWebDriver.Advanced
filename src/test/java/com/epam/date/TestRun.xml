@@ -3,5 +3,6 @@
 	<url>http://qip.ru/</url>
 	<login>epamtestselenium</login>
 	<password>TestEPAM1</password>
+	<!--<browser>Chrome</browser> -->
 	<browser>FF</browser>
 </date>
