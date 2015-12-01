@@ -1,4 +1,4 @@
-package com.epam.date;
+package com.epam;
 
 import org.testng.annotations.DataProvider;
 
@@ -6,14 +6,6 @@ import org.testng.annotations.DataProvider;
  * @author kedr Test data for authorization
  */
 public class TestDataProvider {
-	// Website address
-	public static String url = "";
-	// user login
-	public static String login = "";
-	// user password
-	public static String password = "";
-
-	
 	/**
 	 * 
 	 * The input data for the test.

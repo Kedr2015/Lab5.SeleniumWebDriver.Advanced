@@ -1,8 +1,9 @@
-package com.epam.pages;
+package com.epam.data.pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 /**
  * @author kedr
@@ -18,8 +19,9 @@ public class DraftsMailPage extends MainMailPage {
 		super(driver);
 	}
 
-	// Mask Search saved messages
-	private String identificationDraft = ".//div[@class='figlist']//div[@class='theme']/a[text()='%s']/span[text()='- %s']";
+	// Locator field name
+	@FindBy(xpath = ".//*[@id='messages_frm']/div[3]/div[1]/div[2]/a")
+	private WebElement subjectAndTextMail;
 
 	/**
 	 * The method checks the messages on the page for the input parameters
@@ -32,7 +34,7 @@ public class DraftsMailPage extends MainMailPage {
 	 */
 	public boolean checkForDrafts(String subject, String text) {
 		try {
-			return driver.findElement(By.xpath(String.format(identificationDraft, subject, text))).isEnabled();
+			return (subjectAndTextMail.getText().equals(subject + "- " + text));
 		} catch (NoSuchElementException e) {
 			return false;
 		}
