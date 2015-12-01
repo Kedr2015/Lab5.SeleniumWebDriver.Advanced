@@ -1,4 +1,4 @@
-package com.epam.data.pages;
+package com.epam.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -53,11 +53,6 @@ public class NewMailPage extends MainMailPage {
 		writterMail(to, subject, text);
 		sendToMail.click();
 		checkDialogBox();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		return new MainMailPage(driver);
 	}
 

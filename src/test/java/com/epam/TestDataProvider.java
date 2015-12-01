@@ -14,7 +14,7 @@ public class TestDataProvider {
 	 */
 	@DataProvider
 	public static Object[][] newMailData() {
-		return new Object[][] { { "epamtestselenium@qip.ru", "Test2", "Test3" },
+		return new Object[][] { { "epamtestselendm@qip.ru", "Test2", "Test3" },
 				{ "varchenko.nikita.v@gmail.com", "Test2Test", "Test3Test" }
 
 		};

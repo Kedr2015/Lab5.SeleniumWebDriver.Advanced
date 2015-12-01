@@ -1,4 +1,4 @@
-package com.epam.data.pages;
+package com.epam.pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,9 +16,9 @@ import org.openqa.selenium.support.PageFactory;
  */
 public class BasePage {
 
-	protected static Actions builder;
-	protected static WebDriver driver;
-	protected static JavascriptExecutor executor;
+	protected Actions builder;
+	protected WebDriver driver;
+	protected JavascriptExecutor executor;
 
 	/**
 	 * Transfer driver instance in the constructor
@@ -27,7 +27,7 @@ public class BasePage {
 	 *            -webdriver
 	 */
 	public BasePage(WebDriver driver) {
-		BasePage.driver = driver;
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		builder = new Actions(driver);
 		executor = (JavascriptExecutor) driver;
@@ -66,24 +66,17 @@ public class BasePage {
 	 */
 	public void clickElement(WebElement nameElement, int time) {
 		builder.moveToElement(nameElement).click().perform();
-		try {
-			Thread.sleep(time);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		checkDialogBox();
 	}
 
 	/**
 	 * Bypass dialog
 	 */
-	public static void checkDialogBox() {
+	public void checkDialogBox() {
 		try {
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
-			Thread.sleep(2000);
 		} catch (NoAlertPresentException ex) {
-		} catch (InterruptedException e) {
 		}
 	}
 }

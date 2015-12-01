@@ -5,8 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.epam.TestDataProvider;
-import com.epam.data.pages.NewMailPage;
-import com.epam.data.pages.SentMailPage;
+import com.epam.pages.NewMailPage;
 
 /**
  * @author kedr
@@ -15,15 +14,11 @@ import com.epam.data.pages.SentMailPage;
  *         system
  */
 public class CreateAndSendMessageTest extends BaseTest {
-	// Create an instance login page
-	SentMailPage SentMailPlace;
 	// Create an instance new mail page
-	NewMailPage newMailPlace;
-	// Create an instance new mail page
+	private NewMailPage newMailPlace;
 
 	@BeforeTest
 	public void setUp() {
-		SentMailPlace = new SentMailPage(driver);
 		newMailPlace = new NewMailPage(driver);
 	}
 
@@ -41,10 +36,11 @@ public class CreateAndSendMessageTest extends BaseTest {
 	public void sendMailTest(String to, String subject, String text) {
 		System.out.println("Create and send a new message\nWith options:\nRecipient = " + to + "\nSubject = " + subject
 				+ "\nText mail = " + text);
-		newMailPlace.writeNewLetter().sendMail(to, subject, text).goToSentsMail();
-		Assert.assertTrue(SentMailPlace.checkForSent(subject, text, to),
-				"The letter is not send\nWith options:\nRecipient = " + to + "\nSubject = " + subject + "\nText mail = "
-						+ text);
+		String actualSubjectAndTextMail = newMailPlace.writeNewLetter().sendMail(to, subject, text).waitForMessage()
+				.goToSentsMail().getSubjectAndTextMailAndTo();
+		String expectedSubjectAndTextMail = subject + "- " + text;
+		Assert.assertEquals(actualSubjectAndTextMail, expectedSubjectAndTextMail,
+				"The letter is not sent\nWith options:\nSubject = " + subject + "\nText mail = " + text);
 	}
 
 }

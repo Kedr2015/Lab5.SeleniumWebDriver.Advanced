@@ -14,8 +14,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import com.epam.User;
-import com.epam.data.pages.LoginPage;
-import com.epam.data.pages.MainMailPage;
+import com.epam.pages.LoginPage;
+import com.epam.pages.MainMailPage;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Element;
@@ -30,6 +30,7 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
 	protected WebDriver driver;
+	protected Element file;
 
 	/**
 	 * Selecting a file for piercing
@@ -38,7 +39,7 @@ public class BaseTest {
 	 */
 	private Element capturingFileXML() {
 		try {
-			File fXmlFile = new File(System.getProperty("user.dir") + "/src/main/resources/TestRun.xml");
+			File fXmlFile = new File(System.getProperty("user.dir") + "/src/test/resources/TestRun.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document doc = dBuilder.parse(fXmlFile);
@@ -92,7 +93,7 @@ public class BaseTest {
 			break;
 		case "chrome":
 			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir") + "/src/main/resources/chromedriver");
+					System.getProperty("user.dir") + "/src/test/resources/chromedriver.exe");
 			driver = new ChromeDriver();
 			break;
 		default:
@@ -106,12 +107,13 @@ public class BaseTest {
 	@Parameters({ "browserName" })
 	public void startTest(@Optional("firefox") String browser) {
 		driverSelection(browser);
-		driver.get(getPametrFromXML("url", capturingFileXML()));
+		file=capturingFileXML();
+		driver.get(getPametrFromXML("url", file));
 	}
 
 	@BeforeTest(dependsOnMethods = "startTest")
 	public void test() {
-		new LoginPage(driver).loginMetod(initializationUser(capturingFileXML()));
+		new LoginPage(driver).loginMetod(initializationUser(file));
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package com.epam.data.pages;
+package com.epam.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,13 +25,13 @@ public class LoginPage extends BasePage {
 
 	// Locator field name
 	@FindBy(xpath = "//input[@name='login'][@title='Логин']")
-	private static WebElement userNameLocator;
+	private WebElement userNameLocator;
 	// Locator field password
 	@FindBy(xpath = "//input[@name='password'][@title='Пароль']")
 	private WebElement userPasswordXpath;
 	// Button input
 	@FindBy(css = ".lovesearchbutton")
-	private static WebElement loginButton;
+	private WebElement loginButton;
 	// Button opening page box
 	@FindBy(xpath = "//div[@class='post']//h2/a")
 	private WebElement openMailButton;
@@ -43,14 +43,14 @@ public class LoginPage extends BasePage {
 	 * @param name
 	 *            - user password
 	 */
-	public static void inputName(String name) {
+	public void inputName(String name) {
 		executor.executeScript("arguments[0].value='" + name + "';", userNameLocator);
 	}
 
 	/**
 	 * Clicking on the Login
 	 */
-	public static void pressButtonInput() {
+	public void pressButtonInput() {
 		executor.executeScript("arguments[0].click();", loginButton);
 	}
 

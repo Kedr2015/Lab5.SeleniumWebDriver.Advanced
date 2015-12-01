@@ -1,4 +1,6 @@
-package com.epam.data.pages;
+package com.epam.pages;
+
+import java.util.NoSuchElementException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -32,17 +34,24 @@ public class MainMailPage extends BasePage {
 	@FindBy(xpath = ".//a[2][@href='/~Sent;']")
 	protected WebElement goToSentButton;
 
+	// Button go to Drafts
+	@FindBy(xpath = ".//*[@id='pmess']//font")
+	protected WebElement thruSent;
+
+	// Button go to Drafts
+	@FindBy(xpath = ".//*[@id='pmess']//font[text()='Письмо отправлено']/../a")
+	protected WebElement thruSentClose;
+
+	// Locator field name
+	@FindBy(css = ".refresh-title>span>font")
+	protected WebElement title;
+
 	/**
 	 * The method of writing a new message
 	 * 
 	 * @return NewMailPage
 	 */
 	public NewMailPage writeNewLetter() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		newMailButton.click();
 		checkDialogBox();
 		return new NewMailPage(driver);
@@ -66,7 +75,20 @@ public class MainMailPage extends BasePage {
 	public DraftsMailPage goToDraftsMail() {
 		goToDraftsButton.click();
 		checkDialogBox();
-		return new DraftsMailPage(driver);
+		if (title.getText().equals("Черновики")) {
+			return new DraftsMailPage(driver);
+		} else {
+			throw new NoSuchElementException("Timeout is over");
+		}
+	}
+
+	public MainMailPage waitForMessage() {
+		if (isElementDisplayed(thruSent)) {
+			thruSentClose.click();
+			return this;
+		} else {
+			throw new NoSuchElementException("Timeout is over");
+		}
 	}
 
 	/**
@@ -77,12 +99,12 @@ public class MainMailPage extends BasePage {
 	public SentMailPage goToSentsMail() {
 		goToSentButton.click();
 		checkDialogBox();
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		if (title.getText().equals("Отправленные")) {
+			return new SentMailPage(driver);
+		} else {
+			throw new NoSuchElementException("Timeout is over");
 		}
-		return new SentMailPage(driver);
+
 	}
 
 }

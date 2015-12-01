@@ -1,6 +1,5 @@
-package com.epam.data.pages;
+package com.epam.pages;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,12 +31,8 @@ public class DraftsMailPage extends MainMailPage {
 	 *            - text mail
 	 * @return - Availability of posts on the page
 	 */
-	public boolean checkForDrafts(String subject, String text) {
-		try {
-			return (subjectAndTextMail.getText().equals(subject + "- " + text));
-		} catch (NoSuchElementException e) {
-			return false;
-		}
+	public String getSubjectAndTextMail() {
+		return subjectAndTextMail.getText();
 	}
 
 }
