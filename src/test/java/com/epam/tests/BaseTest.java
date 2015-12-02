@@ -1,8 +1,5 @@
 package com.epam.tests;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,16 +7,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
-import com.epam.User;
+import com.epam.XmlUtils;
 import com.epam.pages.LoginPage;
 import com.epam.pages.MainMailPage;
 
-import org.w3c.dom.Node;
 import org.w3c.dom.Element;
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -31,54 +24,6 @@ public class BaseTest {
 
 	protected WebDriver driver;
 	protected Element file;
-
-	/**
-	 * Selecting a file for piercing
-	 * 
-	 * @return Element
-	 */
-	private Element capturingFileXML() {
-		try {
-			File fXmlFile = new File(System.getProperty("user.dir") + "/src/test/resources/TestRun.xml");
-			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-			Document doc = dBuilder.parse(fXmlFile);
-			doc.getDocumentElement().normalize();
-			NodeList nList = doc.getElementsByTagName("date");
-			for (int temp = 0; temp < nList.getLength(); temp++) {
-				Node nNode = nList.item(temp);
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-					Element eElement = (Element) nNode;
-					return eElement;
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	/**
-	 * Create User
-	 * 
-	 * @param eElement
-	 * @return UserTest
-	 */
-	private User initializationUser(Element eElement) {
-		User UserTest = new User(eElement);
-		return UserTest;
-	}
-
-	/**
-	 * Parsing XML
-	 * 
-	 * @param parametr
-	 * @param eElement
-	 * @return string
-	 */
-	private String getPametrFromXML(String parametr, Element eElement) {
-		return eElement.getElementsByTagName(parametr).item(0).getTextContent();
-	}
 
 	/**
 	 * Driver selection
@@ -107,13 +52,13 @@ public class BaseTest {
 	@Parameters({ "browserName" })
 	public void startTest(@Optional("firefox") String browser) {
 		driverSelection(browser);
-		file=capturingFileXML();
-		driver.get(getPametrFromXML("url", file));
+		file = XmlUtils.capturingFileXML();
+		driver.get(XmlUtils.getParameterFromXML("url", file));
 	}
 
 	@BeforeTest(dependsOnMethods = "startTest")
 	public void test() {
-		new LoginPage(driver).loginMetod(initializationUser(file));
+		new LoginPage(driver).loginMetod(XmlUtils.initializationUser(file));
 	}
 
 	/**

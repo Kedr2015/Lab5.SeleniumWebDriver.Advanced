@@ -39,7 +39,7 @@ public class NewMailPage extends MainMailPage {
 	 * The method of writing a new message
 	 * 
 	 */
-	private void writterMail(String to, String subject, String text) {
+	public void writterMail(String to, String subject, String text) {
 		toMail.sendKeys(to);
 		subjectMail.sendKeys(subject);
 		textMail.sendKeys(text);
