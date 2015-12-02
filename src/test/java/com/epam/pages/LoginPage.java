@@ -66,7 +66,6 @@ public class LoginPage extends BasePage {
 		pressButtonInput();
 		clickElement(openMailButton);
 		return new MainMailPage(driver);
-
 	}
 
 }
