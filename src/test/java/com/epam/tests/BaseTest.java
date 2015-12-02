@@ -52,7 +52,7 @@ public class BaseTest {
 	@Parameters({ "browserName" })
 	public void startTest(@Optional("firefox") String browser) {
 		driverSelection(browser);
-		file = XmlUtils.capturingFileXML();
+		file = XmlUtils.parseFileXML();
 		driver.get(XmlUtils.getParameterFromXML("url", file));
 	}
 

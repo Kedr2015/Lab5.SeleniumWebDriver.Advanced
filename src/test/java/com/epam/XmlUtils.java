@@ -10,13 +10,18 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+/**
+ * @author Nikita_Varchenko
+ * 
+ *         Processing an XML file
+ */
 public class XmlUtils {
 	/**
 	 * Selecting a file for piercing
 	 * 
 	 * @return Element
 	 */
-	public static Element capturingFileXML() {
+	public static Element parseFileXML() {
 		try {
 			File fXmlFile = new File(System.getProperty("user.dir") + "/src/test/resources/TestRun.xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
@@ -44,7 +49,9 @@ public class XmlUtils {
 	 * @return UserTest
 	 */
 	public static User initializationUser(Element eElement) {
-		User testUser = new User(eElement);
+		String password = eElement.getElementsByTagName("password").item(0).getTextContent();
+		String login = eElement.getElementsByTagName("login").item(0).getTextContent();
+		User testUser = new User(login, password);
 		return testUser;
 	}
 

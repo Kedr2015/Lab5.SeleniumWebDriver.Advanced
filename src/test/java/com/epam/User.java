@@ -1,7 +1,5 @@
 package com.epam;
 
-import org.w3c.dom.Element;
-
 /**
  * @author kedr
  * 
@@ -20,10 +18,9 @@ public class User {
 		return password;
 	}
 
-	public User(Element eElement) {
-		this.password = eElement.getElementsByTagName("password").item(0).getTextContent();
-		this.login = eElement.getElementsByTagName("login").item(0).getTextContent();
-
+	public User(String login, String password) {
+		this.password = password;
+		this.login = login;
 	}
 
 }
