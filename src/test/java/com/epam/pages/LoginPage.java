@@ -64,7 +64,7 @@ public class LoginPage extends BasePage {
 		inputName(user.getLogin());
 		inputText(userPasswordXpath, user.getPassword());
 		pressButtonInput();
-		clickElement(openMailButton, 0);
+		clickElement(openMailButton);
 		return new MainMailPage(driver);
 
 	}

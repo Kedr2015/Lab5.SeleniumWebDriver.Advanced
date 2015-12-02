@@ -64,7 +64,7 @@ public class BasePage {
 	 * @param nameElement
 	 *            -The selected item
 	 */
-	public void clickElement(WebElement nameElement, int time) {
+	public void clickElement(WebElement nameElement) {
 		builder.moveToElement(nameElement).click().perform();
 		checkDialogBox();
 	}
