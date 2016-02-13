@@ -1,4 +1,4 @@
-package com.epam.pages;
+package com.epam.ui.pages;
 
 import java.util.NoSuchElementException;
 
@@ -104,7 +104,15 @@ public class MainMailPage extends BasePage {
 		} else {
 			throw new NoSuchElementException("Timeout is over");
 		}
-
+	}
+	
+	/**
+	 * The method checks availability exit button
+	 * 
+	 * @return - true or false
+	 */
+	public boolean IsExitButon() {
+		return isElementDisplayed(exitButton);
 	}
 
 }

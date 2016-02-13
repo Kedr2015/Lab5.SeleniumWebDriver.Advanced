@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.runner;
 
 import org.testng.annotations.DataProvider;
 

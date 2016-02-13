@@ -1,10 +1,10 @@
-package com.epam.pages;
+package com.epam.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import com.epam.User;
+import com.epam.bo.User;
 
 /**
  * @author kedr

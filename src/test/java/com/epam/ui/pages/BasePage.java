@@ -1,4 +1,4 @@
-package com.epam.pages;
+package com.epam.ui.pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;

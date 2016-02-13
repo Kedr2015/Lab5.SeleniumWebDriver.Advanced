@@ -1,4 +1,4 @@
-package com.epam;
+package com.epam.ui;
 
 import java.io.File;
 
@@ -9,6 +9,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
+import com.epam.bo.User;
 
 /**
  * @author Nikita_Varchenko
